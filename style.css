@@ -69,42 +69,6 @@ nav {
 }
 
 
-@media (max-width: 850px) {
-  body {
-    width: 100%;
-  }
-
-  nav {
-    justify-content: space-around;
-  }
-
-  .logo {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .logo__image {
-    margin: 0.5rem;
-  }
-
-  .menu {
-   justify-content: space-around;
-  }
-
-  .menu__item {
-    padding: 1rem;
-    flex: 1 1 50%;
-  }
-}
-
-@media (max-width: 500px) {
-  .menu__item {
-    padding: 1rem;
-    flex: 1 1 100%;
-  }
-}
-
-
 /* BIG PICUTRE */
 .picture-section {
   min-height: var(--min-picture-height);
@@ -148,6 +112,7 @@ footer {
 }
 
 .footer__title {
+  margin-top: 1rem;
   font-weight: 300;
   letter-spacing: 0.1rem;
 }
@@ -155,7 +120,9 @@ footer {
 .footer__buttons {
   display: flex;
   min-width: var(--min-page-width);
+  /* min-height: 150px; */
   justify-content: space-between;
+  align-items: center;
 }
 
 .footer__button {
@@ -171,4 +138,50 @@ footer {
 
 * {
   /* border: 1px solid red; */
+}
+
+
+@media (max-width: 850px) {
+  body {
+    width: 100%;
+  }
+
+  nav {
+    justify-content: space-around;
+  }
+
+  .logo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo__image {
+    margin: 0.5rem;
+  }
+
+  .menu {
+   justify-content: space-around;
+  }
+
+  .menu__item {
+    padding: 1rem;
+    flex: 1 1 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  .menu__item {
+    padding: 1rem;
+    flex: 1 1 100%;
+  }
+
+  .footer__buttons {
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+    justify-content: space-around;
+    align-items: center;
+
+
+  }
 }

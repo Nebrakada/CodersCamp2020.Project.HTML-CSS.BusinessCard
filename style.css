@@ -84,12 +84,28 @@ nav {
   background-size: cover;
   background-position: 50% 60%;
   background-repeat: no-repeat;
+
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   color: var(--title-color);
+  position: relative;
+}
 
+.big-picture > * {
+  position: relative;
+  z-index: 1;
+}
+
+.big-picture::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-image: url('filter.png');
+  position: absolute;
+  opacity: .1;
 }
 
 .big-picture__title {

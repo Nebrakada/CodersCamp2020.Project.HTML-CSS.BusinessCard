@@ -15,18 +15,19 @@ img {
 }
 
 :root {
-  --nav-links-color: #515151;
-  --header-color: #E1E1E1;
-  --min-picture-height: 400px;
-  --min-page-width: 400px;
+  --min-picture-height: 300px;
+  --min-page-width: 300px;
 
   --big-text-size: 6rem;
   --big-text-size-mobile: 4rem;
 
+  --nav-links-color: #515151;
+  --header-color: #E1E1E1;
+  --header-title-color: #FFC53D;
   --title-color: #e1e1e1;
   --highlight-color: #1ff00c;
   --gradient-button: linear-gradient(270deg, #FFC53D 14%, #FF9A3D 68.5%);
-  --background-gradient: linear-gradient(275deg, white, black)
+  --background-gradient: linear-gradient(275deg, white, #23272A)
 }
 
 body {
@@ -91,9 +92,10 @@ nav {
   align-items: center;
   color: var(--title-color);
   position: relative;
+  overflow: hidden;
 }
 
-.big-picture > * {
+.big-picture>* {
   position: relative;
   z-index: 1;
 }
@@ -104,13 +106,33 @@ nav {
   height: 100%;
   background-color: black;
   background-image: url('filter.png');
+  background-size: cover;
   position: absolute;
-  opacity: .1;
+  mix-blend-mode: color-burn;
+  opacity: .3;
 }
 
 .big-picture__title {
   font-size: var(--big-text-size);
   text-align: center;
+  color: var(--header-title-color);
+}
+
+.big-picture__description {
+  color: white;
+  font-weight: 700;
+}
+
+.big-picture__description::after {
+  content: '';
+  width: 120%;
+  height: 150%;
+  top: -.5rem;
+  left: -1.5rem;
+  background-color: rgba(0, 0, 0, .4);
+  filter: blur(.2rem);
+  position: absolute;
+  z-index: -1;
 }
 
 .big-picture__highlight {
@@ -138,24 +160,30 @@ footer {
 .footer__buttons {
   display: flex;
   min-width: var(--min-page-width);
-  /* min-height: 150px; */
   justify-content: space-between;
   align-items: center;
+  min-width: 400px;
 }
 
 .footer__button {
   padding: 0.8rem 2rem;
   background-image: var(--gradient-button);
-  color: var(--title-color);
+  color: var(--nav-links-color);
   font-weight: 700;
   text-decoration: none;
   outline: none;
   border-radius: 0.7rem;
+  box-shadow: 0 0.5rem 2px rgba(0, 0, 0, .4);
+}
+
+.footer__button:hover {
+  box-shadow: none;
+  transform: translateY(0.2rem) ;
 }
 
 
 * {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 
@@ -194,6 +222,7 @@ footer {
   :root {
     font-size: 12px;
   }
+
   body {
     width: 100%;
   }
@@ -213,5 +242,11 @@ footer {
     min-height: 150px;
     justify-content: space-around;
     align-items: center;
+  }
+}
+
+@media (max-width: 400px) {
+  :root {
+    font-size: 10px;
   }
 }

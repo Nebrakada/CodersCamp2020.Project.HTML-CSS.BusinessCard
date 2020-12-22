@@ -159,15 +159,6 @@ nav {
   font-weight: 700;
 }
 
-/*
-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  min-height: 200px;
-} */
-
 .footer__title {
   text-align: center;
   margin-top: var(--inner-section-margin);
@@ -200,81 +191,6 @@ footer {
   box-shadow: none;
   transform: translateY(0.2rem);
 }
-
-@media (max-width: 850px) {
-  :root {
-    font-size: 14px;
-  }
-
-  body {
-    width: 100%;
-  }
-
-  nav {
-    justify-content: space-around;
-    font-size: 1.2rem;
-  }
-
-  .logo {
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100px;
-
-  }
-
-  .menu {
-    justify-content: space-around;
-  }
-
-  .menu__item {
-    padding: 1rem;
-    flex: 1 1 50%;
-  }
-}
-
-@media (max-width: 500px) {
-  :root {
-    font-size: 12px;
-  }
-
-  body {
-    width: 100%;
-    max-width: 500px;
-  }
-
-  .menu__item {
-    padding: 1rem;
-    flex: 1 1 80%;
-  }
-
-  footer {
-    padding: 0 2rem;
-  }
-
-  .footer__buttons {
-    display: flex;
-    flex-direction: column;
-    /* min-height: 150px; */
-    padding: 1rem;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-
-}
-
-@media (max-width: 400px) {
-  :root {
-    font-size: 10px;
-  }
-
-  body {
-    width: 100%;
-    max-width: var(--min-page-width);
-  }
-}
-
-
 
 /* ABOUT ME  */
 .about_me {
@@ -385,7 +301,6 @@ footer {
 }
 
 .gallery__image {
-  display: inline-block;
   background-color: gray;
   background-position: center;
   background-size: cover;
@@ -394,7 +309,8 @@ footer {
   position: relative;
 }
 
-.overlay {
+.gallery__image::after {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -405,53 +321,64 @@ footer {
   transition: opacity .2s ease-in-out;
 }
 
+
 .gallery__image:hover {
   transform: scale(1.3);
   z-index: 2;
-  filter: none;
 }
 
-.gallery__image:hover .overlay{
-  opacity: 0;
+.gallery__image:hover::after {
+  display: none;
 }
+
 .gallery__image:hover .gallery__image-caption {
   opacity: 1;
 }
 
 .gallery__image-caption {
-  color: white;
+  color: var(--primary-color);
   font-size: 2rem;
   position: absolute;
+  font-weight: 700;
   bottom: 2rem;
   left: 3rem;
   opacity: 0;
-  transition: opacity .2s .2s ease-in-out;
+  transition: opacity .2s .4s ease-in-out;
 }
 
 
 .gm-1 {
   background-image: url(./images/loli.jpg);
+  background-position: 100% 10%;
 }
 
 .gm-2 {
   background-image: url(./images/franek.jpg);
-  background-position: 100% 20%;
+  background-position: 90% 30%;
 }
 
 .gm-3 {
-  background-image: url(./images/loli2.jpg);
+  background-image: url(./images/loli22.png);
 }
 
 .gm-4 {
   background-image: url(./images/niunia3.jpg);
+  background-position: 50% 40%;
 }
 
 .gm-5 {
   background-image: url(./images/niunia2.jpg);
+  background-position: 30% 40%;
 }
 
 .gm-6 {
   background-image: url(./images/franlolipark.jpg);
+  background-position: center;
+}
+
+.gm-7 {
+  background-image: url(./images/fran2.jpg);
+  background-position: 50% 35%;
 }
 
 .horizontal-2 {
@@ -553,4 +480,85 @@ footer {
 .form__entry label {
   margin: 2rem 0 .5rem;
   font-weight: 700;
+}
+
+@media (min-width: 1200px) {
+  body {
+    max-width: 1600px;
+  }
+}
+
+@media (max-width: 850px) {
+  :root {
+    font-size: 14px;
+  }
+
+  body {
+    width: 100%;
+  }
+
+  nav {
+    justify-content: space-around;
+    font-size: 1.2rem;
+  }
+
+  .logo {
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100px;
+
+  }
+
+  .menu {
+    justify-content: space-around;
+  }
+
+  .menu__item {
+    padding: 1rem;
+    flex: 1 1 50%;
+  }
+}
+
+
+
+@media (max-width: 500px) {
+  :root {
+    font-size: 12px;
+  }
+
+  body {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .menu__item {
+    padding: 1rem;
+    flex: 1 1 80%;
+  }
+
+  footer {
+    padding: 0 2rem;
+  }
+
+  .footer__buttons {
+    display: flex;
+    flex-direction: column;
+    /* min-height: 150px; */
+    padding: 1rem;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+
+}
+
+@media (max-width: 400px) {
+  :root {
+    font-size: 10px;
+  }
+
+  body {
+    width: 100%;
+    max-width: var(--min-page-width);
+  }
 }
